@@ -1,0 +1,60 @@
+## OpenCV
+
+It stands for Open Source Computer Vision Library. This library consists of around 2000+ optimised algorithms that are useful for computer vision and machine learning. There are several ways you can use opencv in image processing, a few are listed below:
+
+    Converting images from one color space to another i.e. like between BGR and HSV, BGR and gray etc.
+    Performing thresholding on images, like, simple thresholding, adaptive thresholding etc. 
+    Smoothing of images, like, applying custom filters to images and blurring of images.
+    Performing morphological operations on images.
+    Building image pyramids.
+    Extracting foreground from images using GrabCut algorithm.
+    Image segmentation using watershed algorithm.
+    
+  ## Image Preprocessing for OCR
+  https://nextgeninvent.com/blogs/7-steps-of-image-pre-processing-to-improve-ocr-using-python-2/
+
+## 1. Image Normalization
+
+
+## 2. Skew Correction
+> Skew correction, also known as deskew or straightening, is a process in image processing where an image is rotated to correct for any slant or skew. Skew is a distortion that occurs when an image is scanned or captured at an angle or when the camera is not aligned correctly with the object being photographed.
+
+Skew correction is important because it can affect the accuracy of optical character recognition (OCR) and other image analysis techniques. For example, if a document is skewed, OCR software may incorrectly recognize characters, leading to errors in text recognition.
+
+Skew correction can be performed using various image processing techniques, such as edge detection, Hough transform, or projection profile analysis. These techniques can detect the angle of the skew and then rotate the image to correct it. Some software programs, such as Adobe Acrobat and ABBYY FineReader, have built-in skew correction features that can automatically detect and correct skew in scanned documents.
+
+Overall, skew correction is an important preprocessing step in image analysis that can improve the accuracy of subsequent processing tasks.
+
+## Thresholding or Binarization :
+> This step converts any colored image into a binary image that contains only two colors black and white. It is done by fixing a threshold (normally half of the pixel range 0-255, i.e., 127). The pixel value having greater than the threshold is converted into a white pixel else into a black pixel. To determine the threshold value according to the image Otsu’s Binarization and Adaptive Binarization can be a better choice. 
+>
+
+## dilation and erosion :
+
+It is common to use both cv2.dilate and cv2.erode functions simultaneously in morphological image processing. This is often done to perform opening or closing operations, which can help to remove noise, smooth object boundaries, and enhance object features in an image.
+
+An opening operation is performed by first applying an erosion operation to the input image to remove small protrusions and then applying a dilation operation to fill in small gaps between the remaining foreground objects. This can help to smooth the object boundaries and remove small noise pixels.
+
+A closing operation is performed by first applying a dilation operation to the input image to fill in small gaps between the foreground objects and then applying an erosion operation to remove small protrusions. This can help to close small holes within the foreground objects and remove small noise pixels.
+
+To perform opening or closing operations using cv2.dilate and cv2.erode, simply apply the cv2.erode function with the appropriate structuring element and iterations parameter, followed by the cv2.dilate function with the same structuring element and iterations parameter.
+
+Opening and closing operations are both useful for different types of image processing tasks. In general, opening is used to remove small objects, thin lines, and small protrusions from the foreground of an image, while closing is used to fill small holes, small gaps, and thin lines within the foreground of an image.
+
+Here are some guidelines on when to use opening and when to use closing operations:
+
+Use opening when:
+
+    You want to remove small objects or thin lines from the foreground of an image.
+    You want to remove small protrusions or noise from the foreground of an image.
+    You want to smooth the boundaries of the foreground objects while preserving their overall shape.
+    You want to enhance the contrast and visibility of the foreground objects.
+
+Use closing when:
+
+    You want to fill small holes or gaps within the foreground objects.
+    You want to connect small disjointed regions of the foreground objects.
+    You want to preserve the overall shape of the foreground objects while filling in small gaps.
+    You want to make the foreground objects more complete and less fragmented.
+
+It is important to note that opening and closing operations are often used in combination with other image processing techniques, such as thresholding, edge detection, and segmentation, to achieve the desired result. The specific approach and order of the image processing techniques depend on the specific image processing task and the characteristics of the input image.
